@@ -12,12 +12,22 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Imagem\grupo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="OpenTK" Version="4.8.2" />
     <PackageReference Include="StbImageSharp" Version="2.27.13" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CG_Biblioteca\CG_Biblioteca.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Imagem\grupo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

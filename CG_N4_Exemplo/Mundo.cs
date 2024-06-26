@@ -12,7 +12,7 @@ using OpenTK.Windowing.GraphicsLibraryFramework;
 using OpenTK.Windowing.Desktop;
 using System;
 using OpenTK.Mathematics;
-using System.Collections.Generic;
+using System.IO;
 
 //FIXME: padrão Singleton
 
@@ -101,7 +101,7 @@ namespace gcgcg
             _cuboMaior = new Cubo(mundo, ref rotuloNovo);
             _cuboMaior.MatrizEscalaXYZ(1, 1, 1);
             _cuboMaior._shaderObjeto = new Shader("Shaders/shaderTexture.vert", "Shaders/shaderTextura.frag");
-            _cuboMaior.texture = Texture.LoadFromFile("C:\\grupo.png");
+            _cuboMaior.texture = Texture.LoadFromFile(Path.Combine(Environment.CurrentDirectory, "Imagem", "grupo.png"));
             _cuboMaior.ObjetoAtualizar();
 
             objetoSelecionado = _cuboMaior;
