@@ -13,6 +13,7 @@ using OpenTK.Windowing.Desktop;
 using System;
 using OpenTK.Mathematics;
 using System.IO;
+using gcgcg.Shaders;
 
 //FIXME: padrão Singleton
 
@@ -72,13 +73,13 @@ namespace gcgcg
                                                // GL.CullFace(CullFaceMode.FrontAndBack);
 
             #region Cores
-            _shaderBranca = new Shader("Shaders/shader.vert", "Shaders/shaderBranca.frag");
-            _shaderVermelha = new Shader("Shaders/shader.vert", "Shaders/shaderVermelha.frag");
-            _shaderVerde = new Shader("Shaders/shader.vert", "Shaders/shaderVerde.frag");
-            _shaderAzul = new Shader("Shaders/shader.vert", "Shaders/shaderAzul.frag");
-            _shaderCiano = new Shader("Shaders/shader.vert", "Shaders/shaderCiano.frag");
-            _shaderMagenta = new Shader("Shaders/shader.vert", "Shaders/shaderMagenta.frag");
-            _shaderAmarela = new Shader("Shaders/shader.vert", "Shaders/shaderAmarela.frag");
+            _shaderBranca = ShaderFactory.CreateShader(Shaders.ShaderType.Branca);
+            _shaderVermelha = ShaderFactory.CreateShader(Shaders.ShaderType.Vermelha);
+            _shaderVerde = ShaderFactory.CreateShader(Shaders.ShaderType.Verde);
+            _shaderAzul = ShaderFactory.CreateShader(Shaders.ShaderType.Azul);
+            _shaderCiano = ShaderFactory.CreateShader(Shaders.ShaderType.Ciano);
+            _shaderMagenta = ShaderFactory.CreateShader(Shaders.ShaderType.Magenta);
+            _shaderAmarela = ShaderFactory.CreateShader(Shaders.ShaderType.Amarela);
             #endregion
 
             #region Eixos: SRU  
@@ -100,7 +101,7 @@ namespace gcgcg
             #region Objeto: Cubo
             _cuboMaior = new Cubo(mundo, ref rotuloNovo);
             _cuboMaior.MatrizEscalaXYZ(1, 1, 1);
-            _cuboMaior._shaderObjeto = new Shader("Shaders/shaderTexture.vert", "Shaders/shaderTextura.frag");
+            _cuboMaior._shaderObjeto = ShaderFactory.CreateShader(Shaders.ShaderType.Textura);
             _cuboMaior.texture = Texture.LoadFromFile(Path.Combine(Environment.CurrentDirectory, "Imagem", "grupo.png"));
             _cuboMaior.ObjetoAtualizar();
 
